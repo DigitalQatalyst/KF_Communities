@@ -31,7 +31,7 @@ export const PostTypeBadge: React.FC<PostTypeBadgeProps> = ({
           icon: Calendar,
           label: 'Event',
           emoji: '📅',
-          colorClass: 'bg-purple-50 text-purple-700 border-purple-200'
+          colorClass: 'bg-blue-50 text-blue-700 border-blue-200'
         };
       case 'announcement':
         return {
