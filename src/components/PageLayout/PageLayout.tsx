@@ -1,4 +1,5 @@
-import React, { Fragment, Component } from 'react';
+import React, { Fragment, Component, useMemo } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { ChevronRight, Home } from 'lucide-react';
 export interface BreadcrumbItem {
   label: string;
@@ -30,10 +31,10 @@ export function Breadcrumbs({
           {item.current ? <span className={`${defaultCurrentColor} font-medium flex items-center`}>
               {index === 0 && <Home className={`w-4 h-4 ${defaultIconColor} mr-1`} />}
               {item.label}
-            </span> : <a href={item.href || '#'} className={`${defaultTextColor} ${defaultHoverColor} flex items-center`}>
+            </span> : <Link to={item.href || '#'} className={`${defaultTextColor} ${defaultHoverColor} flex items-center`}>
               {index === 0 && <Home className={`w-4 h-4 ${defaultIconColor} mr-1`} />}
               {item.label}
-            </a>}
+            </Link>}
         </Fragment>)}
     </nav>;
 }
@@ -103,10 +104,45 @@ export function PageLayout({
   children,
   'data-id': dataId
 }: PageLayoutProps) {
+  // Auto-generate breadcrumbs from current route if not provided
+  const location = useLocation();
+  const autoBreadcrumbs: BreadcrumbItem[] | undefined = useMemo(() => {
+    if (breadcrumbs && breadcrumbs.length > 0) return breadcrumbs;
+    const pathname = location.pathname || '/';
+    const segments = pathname.split('/').filter(Boolean);
+    const parts: BreadcrumbItem[] = [];
+    // Home
+    parts.push({ label: 'Home', href: '/', current: segments.length === 0 });
+    if (segments.length === 0) return parts;
+    const labelMap: Record<string, string> = {
+      'feed': 'Feed',
+      'communities': 'Communities',
+      'community': 'Community',
+      'members': 'Members',
+      'settings': 'Settings',
+      'post': 'Post',
+      'create': 'Create',
+      'edit': 'Edit',
+      'profile': 'Profile',
+      'moderation': 'Moderation',
+      'analytics': 'Analytics',
+      'activity': 'Activity',
+      'messages': 'Messages'
+    };
+    let cumulative = '';
+    segments.forEach((seg, idx) => {
+      cumulative += `/${seg}`;
+      const isLast = idx === segments.length - 1;
+      const isIdLike = /^(\d+|[a-f0-9\-]{6,})$/i.test(seg);
+      const label = labelMap[seg] || (isIdLike ? seg : (seg.charAt(0).toUpperCase() + seg.slice(1)));
+      parts.push({ label, href: isLast ? undefined : cumulative, current: isLast });
+    });
+    return parts;
+  }, [breadcrumbs, location.pathname]);
   // Full-width header variant
   if (headerVariant === 'fullWidthHeader') {
     return <main className="flex-1 overflow-y-auto overflow-x-hidden bg-gray-50">
-        {title && <PageHeader title={title} breadcrumbs={breadcrumbs} variant="fullWidthHeader" subtitle={headerSubtitle} backgroundImage={headerBackgroundImage} />}
+        {title && <PageHeader title={title} breadcrumbs={autoBreadcrumbs} variant="fullWidthHeader" subtitle={headerSubtitle} backgroundImage={headerBackgroundImage} />}
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 pb-8 md:mt-10 md:pb-10">
           <div className="space-y-4 md:space-y-6">{children}</div>
         </div>
@@ -114,7 +150,7 @@ export function PageLayout({
   }
   // Default variant - standard contained layout
   return <main className="flex-1 overflow-y-auto overflow-x-hidden bg-gray-50">
-      {title && <PageHeader title={title} breadcrumbs={breadcrumbs} variant="default" />}
+      {title && <PageHeader title={title} breadcrumbs={autoBreadcrumbs} variant="default" />}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mt-6 md:mt-10 space-y-4 md:space-y-6">{children}</div>
       </div>
