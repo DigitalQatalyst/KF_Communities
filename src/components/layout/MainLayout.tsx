@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { Header as OriginalHeader } from '@/components/layout/Header';
 import { useAuth } from '@/contexts/AuthProvider';
 import { DemoHeader, AuthProvider as KFAuthProvider } from '@/components/Header';
 import { Footer } from '@/components/Footer';
@@ -69,23 +68,11 @@ export function MainLayout({
   return <div className="flex flex-col min-h-screen w-full">
       {/* EJP Gradient Header - Always visible */}
       <KFAuthProvider>
-        <DemoHeader />
+        <DemoHeader toggleSidebar={toggleSidebar} sidebarOpen={sidebarOpen} />
       </KFAuthProvider>
 
-      {/* Prototype Mode Overlay - Overlaid on top of DemoHeader */}
-      <div className="fixed top-0 left-0 right-0 z-[100] bg-yellow-100/90 backdrop-blur-sm border-b border-yellow-200">
-        <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between py-2">
-            <p className="text-yellow-800 text-xs font-medium">Prototype Mode</p>
-            <OriginalHeader toggleSidebar={toggleSidebar} sidebarOpen={sidebarOpen} />
-          </div>
-        </div>
-      </div>
-
       {/* Main content area with sidebar */}
-      <div className="flex flex-1 w-full min-h-screen" style={{
-      paddingTop: '40px'
-    }}>
+      <div className="flex flex-1 w-full min-h-screen">
         {/* Sidebar - Desktop: always visible, Mobile: toggle */}
         {user && <>
             {/* Mobile/Tablet backdrop */}
