@@ -350,7 +350,7 @@ export const InlineComposer: React.FC<InlineComposerProps> = ({
   }
   return <div className="bg-white rounded-2xl border border-gray-200 shadow-sm p-6">
       <div className="flex items-center gap-3 mb-4">
-        <div className="h-10 w-10 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white font-semibold">
+        <div className="h-10 w-10 rounded-full bg-[#3b82f6] flex items-center justify-center text-white font-semibold">
           {user.email?.charAt(0).toUpperCase() || 'U'}
         </div>
         <h3 className="text-lg font-semibold text-gray-900">Create a Post</h3>
