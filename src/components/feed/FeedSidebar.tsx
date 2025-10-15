@@ -122,7 +122,7 @@ export function FeedSidebar({
       <Card className="shadow-sm rounded-xl bg-white border border-gray-100 overflow-hidden">
         <CardHeader className="p-4 pb-3 bg-blue-50/30">
           <CardTitle className="text-sm font-semibold flex items-center gap-2 text-gray-900">
-            <Sparkles className="h-4 w-4 text-[#0030E3]" />
+            <Sparkles className="h-4 w-4 text-[#3b82f6]" />
             Trending Topics
           </CardTitle>
         </CardHeader>
@@ -140,7 +140,7 @@ export function FeedSidebar({
       <Card className="shadow-sm rounded-xl bg-white border border-gray-100">
         <CardHeader className="p-4 pb-3 bg-teal-50/30">
           <CardTitle className="text-sm font-semibold flex items-center gap-2 text-gray-900">
-            <Users className="h-4 w-4 text-[#00E5D1]" />
+            <Users className="h-4 w-4 text-[#3b82f6]" />
             Top Communities
           </CardTitle>
         </CardHeader>
@@ -167,7 +167,7 @@ export function FeedSidebar({
                 <Button variant="ghost" size="sm" onClick={e => {
               e.stopPropagation();
               if (!joined) handleJoinCommunity(community.id);
-            }} disabled={joined} className={`h-8 text-xs px-3 ${joined ? 'bg-gray-100 text-gray-500 cursor-not-allowed' : 'bg-[#00E5D1] text-white hover:bg-[#00c7b3]'} transition-all duration-200`}>
+            }} disabled={joined} className={`h-8 text-xs px-3 ${joined ? 'bg-gray-100 text-gray-500 cursor-not-allowed' : 'bg-[#3b82f6] text-white hover:bg-[#2563eb]'} transition-all duration-200`}>
                   {joined ? 'Joined' : 'Join'}
                 </Button>
               </div>;
@@ -179,19 +179,19 @@ export function FeedSidebar({
       <Card className="shadow-sm rounded-xl bg-white border border-gray-100">
         <CardHeader className="p-4 pb-3 bg-purple-50/30">
           <CardTitle className="text-sm font-semibold flex items-center gap-2 text-gray-900">
-            <Calendar className="h-4 w-4 text-[#954BF9]" />
+            <Calendar className="h-4 w-4 text-[#3b82f6]" />
             Upcoming Events
           </CardTitle>
         </CardHeader>
         <CardContent className="p-4 pt-0 space-y-3">
-          {upcomingEvents.length > 0 ? upcomingEvents.map(event => <div key={event.id} className="hover:bg-teal-50 p-3 -mx-2 rounded-lg transition-all duration-200 cursor-pointer border-l-4 border-transparent hover:border-[#00E5D1] hover:shadow-sm">
+          {upcomingEvents.length > 0 ? upcomingEvents.map(event => <div key={event.id} className="hover:bg-blue-50 p-3 -mx-2 rounded-lg transition-all duration-200 cursor-pointer border-l-4 border-transparent hover:border-[#3b82f6] hover:shadow-sm">
                 <p className="text-sm font-semibold text-gray-900">{event.title}</p>
                 <p className="text-xs text-gray-600 mt-1 line-clamp-2">{event.description}</p>
                 <div className="flex items-center justify-between mt-2">
-                  <p className="text-xs text-[#00E5D1] font-medium">
+                  <p className="text-xs text-[#3b82f6] font-medium">
                     📅 {format(new Date(event.event_date), 'MMM dd, yyyy')} • {event.event_time?.slice(0, 5) || 'TBA'}
                   </p>
-                  <Button size="sm" className="h-6 text-xs px-2 bg-[#00E5D1] hover:bg-[#00c7b3] text-white">
+                  <Button size="sm" className="h-6 text-xs px-2 bg-[#3b82f6] hover:bg-[#2563eb] text-white">
                     Join
                   </Button>
                 </div>
