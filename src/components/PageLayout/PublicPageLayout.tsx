@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import { Link } from 'react-router-dom';
 import { ChevronRight, Home } from 'lucide-react';
 // ============================================================================
 // FOOTER COMPONENT
@@ -82,10 +83,10 @@ function PublicBreadcrumbs({
           {item.current ? <span className="font-medium flex items-center">
               {index === 0 && <Home className="w-4 h-4 opacity-60 mr-1" />}
               {item.label}
-            </span> : <a href={item.href || '#'} className="hover:opacity-80 flex items-center transition-opacity">
+            </span> : <Link to={item.href || '#'} className="hover:opacity-80 flex items-center transition-opacity">
               {index === 0 && <Home className="w-4 h-4 opacity-60 mr-1" />}
               {item.label}
-            </a>}
+            </Link>}
         </Fragment>)}
     </nav>;
 }
