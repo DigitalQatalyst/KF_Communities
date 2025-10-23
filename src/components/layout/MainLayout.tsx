@@ -78,7 +78,7 @@ export function MainLayout({
         {user && <>
             {/* Mobile/Tablet backdrop */}
             {sidebarOpen && <div className="fixed inset-0 bg-black/50 z-20 lg:hidden" onClick={() => setSidebarOpen(false)} />}
-            <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} activeSection={activeSection} onSectionChange={handleSectionChange} companyName="Community Platform" />
+            {/* <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} activeSection={activeSection} onSectionChange={handleSectionChange} companyName="Community Platform" /> */}
           </>}
 
         {/* Content - adjusts based on sidebar presence */}

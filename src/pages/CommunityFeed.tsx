@@ -10,7 +10,7 @@ import { supabase } from '@/integrations/supabase/client';
 import { safeFetch } from '@/utils/safeFetch';
 import { StickyActionButton } from '@/components/KF eJP Library/Button';
 import { Button } from '@/components/ui/button';
-import { Plus, X, Filter, Search } from 'lucide-react';
+import { X, Search } from 'lucide-react';
 interface Post {
   id: string;
   title: string;

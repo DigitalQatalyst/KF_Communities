@@ -23,7 +23,8 @@ export const CardFooter: React.FC<CardFooterProps> = ({
   }
   const getButtonStyles = (variant?: 'primary' | 'secondary' | 'member') => {
     if (variant === 'member') {
-      return 'text-white bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 shadow-md border-2 border-green-500/20';
+      // Use blue styling to match primary CTA appearance
+      return 'text-white bg-blue-600 hover:bg-blue-700';
     }
     if (variant === 'secondary') {
       return 'text-blue-600 bg-white border border-blue-600 hover:bg-blue-50';
