@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '@/contexts/AuthProvider';
-import { DemoHeader, AuthProvider as KFAuthProvider } from '@/components/Header';
+import { Header, AuthProvider as KFAuthProvider } from '@/components/Header';
+//import { Header } from "../../components/Header";
 import { Footer } from '@/components/Footer';
 import { Sidebar } from '@/components/AppSidebar';
 import { PageLayout, PageSection, SectionContent } from '@/components/PageLayout';
@@ -68,7 +69,7 @@ export function MainLayout({
   return <div className="flex flex-col min-h-screen w-full">
       {/* EJP Gradient Header - Always visible */}
       <KFAuthProvider>
-        <DemoHeader toggleSidebar={toggleSidebar} sidebarOpen={sidebarOpen} />
+        <Header toggleSidebar={toggleSidebar} sidebarOpen={sidebarOpen} />
       </KFAuthProvider>
 
       {/* Main content area with sidebar */}

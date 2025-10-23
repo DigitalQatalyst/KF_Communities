@@ -27,20 +27,20 @@ export function Footer({
 }: FooterProps) {
   // Minimal App Footer (Post-login)
   if (isLoggedIn) {
-    return <footer className="bg-gray-50 border-t border-gray-100 w-full h-10">
+    return <footer data-id={dataId} className="bg-gray-50 border-t border-gray-100 w-full h-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 h-full flex items-center justify-between">
           <div className="flex items-center space-x-3 text-xs text-gray-500">
             <span>© 2025 Enterprise Journey</span>
             <span className="hidden sm:inline">v2.1.0</span>
           </div>
-          <a href="#" className="text-xs text-gray-500 hover:text-gray-700 transition-colors">
+          <a href="/dashboard/support" className="text-xs text-gray-500 hover:text-gray-700 transition-colors">
             Support
           </a>
         </div>
       </footer>;
   }
   // Full Website Footer (Pre-login)
-  return <footer className="bg-blue-600 text-white w-full">
+  return <footer data-id={dataId} className="bg-blue-600 text-white w-full">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
         {/* Mobile Layout */}
         <div className="block lg:hidden">
@@ -80,7 +80,7 @@ export function Footer({
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="text-blue-100 hover:text-white transition-colors text-sm block">
+                  <a href="/discover-abudhabi" className="text-blue-100 hover:text-white transition-colors text-sm block">
                     Discover Abu Dhabi
                   </a>
                 </li>
@@ -99,23 +99,23 @@ export function Footer({
             <AccordionSection title="For You">
               <ul className="space-y-3">
                 <li>
-                  <a href="#" className="text-blue-100 hover:text-white transition-colors text-sm block">
+                  <a href="/marketplace/financial" className="text-blue-100 hover:text-white transition-colors text-sm block">
                     Financial Services
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="text-blue-100 hover:text-white transition-colors text-sm block">
-                    Non-Financial Services
+                  <a href="/marketplace/non-financial" className="text-blue-100 hover:text-white transition-colors text-sm block">
+                    Business Services
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="text-blue-100 hover:text-white transition-colors text-sm block">
-                    Communities
+                  <a href="https://ujs.qxk.mybluehost.me/website_e550b4e3/" className="text-blue-100 hover:text-white transition-colors text-sm block">
+                    Business Business Communities
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="text-blue-100 hover:text-white transition-colors text-sm block">
-                    Media Centre
+                  <a href="/marketplace/knowledge-hub" className="text-blue-100 hover:text-white transition-colors text-sm block">
+                    Knowledge Hub
                   </a>
                 </li>
               </ul>
@@ -158,7 +158,7 @@ export function Footer({
             {/* Logo and Newsletter Section */}
             <div>
               <div className="mb-6">
-                <h2 className="text-2xl font-bold tracking-tight">
+                <h2 className="text-2xl font-bold tracking-tight text-white ">
                   ENTERPRISE
                   <br />
                   JOURNEY
@@ -181,7 +181,7 @@ export function Footer({
             </div>
             {/* Get to Know Us */}
             <div>
-              <h3 className="font-semibold text-lg mb-6">Get to Know Us</h3>
+              <h3 className="font-semibold text-lg mb-6 text-white">Get to Know Us</h3>
               <ul className="space-y-4">
                 <li>
                   <a href="#" className="text-blue-100 hover:text-white transition-colors text-sm">
@@ -194,7 +194,7 @@ export function Footer({
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="text-blue-100 hover:text-white transition-colors text-sm">
+                  <a href="/discover-abudhabi" className="text-blue-100 hover:text-white transition-colors text-sm">
                     Discover Abu Dhabi
                   </a>
                 </li>
@@ -212,33 +212,33 @@ export function Footer({
             </div>
             {/* For You */}
             <div>
-              <h3 className="font-semibold text-lg mb-6">For You</h3>
+              <h3 className="font-semibold text-lg mb-6 text-white">For You</h3>
               <ul className="space-y-4">
                 <li>
-                  <a href="#" className="text-blue-100 hover:text-white transition-colors text-sm">
+                  <a href="/marketplace/financial" className="text-blue-100 hover:text-white transition-colors text-sm">
                     Financial Services
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="text-blue-100 hover:text-white transition-colors text-sm">
-                    Non-Financial Services
+                  <a href="/marketplace/non-financial" className="text-blue-100 hover:text-white transition-colors text-sm">
+                    Business Services
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="text-blue-100 hover:text-white transition-colors text-sm">
-                    Communities
+                  <a href="https://ujs.qxk.mybluehost.me/website_e550b4e3/" className="text-blue-100 hover:text-white transition-colors text-sm">
+                    Business Communities
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="text-blue-100 hover:text-white transition-colors text-sm">
-                    Media Centre
+                  <a href="/marketplace/knowledge-hub" className="text-blue-100 hover:text-white transition-colors text-sm">
+                    Knowledge Hub
                   </a>
                 </li>
               </ul>
             </div>
             {/* Find Us */}
             <div>
-              <h3 className="font-semibold text-lg mb-6">Find Us</h3>
+              <h3 className="font-semibold text-lg mb-6 text-white">Find Us</h3>
               <ul className="space-y-4">
                 <li>
                   <a href="#" className="text-blue-100 hover:text-white transition-colors text-sm flex items-center gap-2" target="_blank" rel="noopener noreferrer">

@@ -240,7 +240,7 @@ export default function Home() {
                                 <Avatar className="h-8 w-8 border border-gray-200">
                                   <AvatarImage src={`https://avatar.vercel.sh/${post.author_username}`} alt={post.author_username} />
                                   <AvatarFallback className="text-xs bg-indigo-50 text-indigo-700">
-                                    {post.author_username.charAt(0).toUpperCase()}
+                                    {post.author_username?.charAt(0).toUpperCase() || 'U'}
                                   </AvatarFallback>
                                 </Avatar>
                                 <div className="flex flex-col">
